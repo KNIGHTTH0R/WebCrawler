@@ -15,7 +15,7 @@ import edu.uci.ics.crawler4j.url.WebURL;
 public class CrawlerNYTimes extends WebCrawler {
 	
 	public HashMap<String,Integer> hash = new HashMap<String,Integer>();
-	int pageNumber = 0;
+	static int pageNumber = 0;
 	private final static Pattern FILTERS =
 			Pattern.compile(".*(\\.(css|js|bmp|gif|jpe?g"
 					+ "|png|tiff?|mid|mp2|mp3|mp4"

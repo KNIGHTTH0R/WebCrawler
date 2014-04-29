@@ -14,7 +14,7 @@ import edu.uci.ics.crawler4j.url.WebURL;
 
 public class CrawlerBbc extends WebCrawler {
 	public HashMap<String,Integer> hash = new HashMap<String,Integer>();
-	int pageNumber = 0;
+	static int pageNumber = 0;
 	private final static Pattern FILTERS =
 			Pattern.compile(".*(\\.(css|js|bmp|gif|jpe?g"
 					+ "|png|tiff?|mid|mp2|mp3|mp4"
@@ -31,10 +31,8 @@ public class CrawlerBbc extends WebCrawler {
 	public void visit(Page page) {
 		String url = page.getWebURL().getURL();
 
-		if (url.contains("bbc.com/news/") && page.getParseData() instanceof HtmlParseData
+		if (url.contains("http://www.bbc.com/news/") && page.getParseData() instanceof HtmlParseData
 				&& !hash.containsKey(url)) {
-
-			System.out.println("\n" + url);
 			
 			HtmlParseData HTMLParseData =
 					(HtmlParseData) page.getParseData();

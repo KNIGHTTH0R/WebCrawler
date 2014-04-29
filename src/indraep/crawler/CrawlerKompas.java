@@ -16,7 +16,7 @@ import edu.uci.ics.crawler4j.url.WebURL;
 public class CrawlerKompas extends WebCrawler {
 
 	public HashMap<String,Integer> hash = new HashMap<String,Integer>();
-	int pageNumber = 0;
+	static int pageNumber = 0;
 	private final static Pattern FILTERS =
 			Pattern.compile(".*(\\.(css|js|bmp|gif|jpe?g"
 					+ "|png|tiff?|mid|mp2|mp3|mp4"
@@ -33,7 +33,15 @@ public class CrawlerKompas extends WebCrawler {
 	public void visit(Page page) {
 		String url = page.getWebURL().getURL();
 		
-		if (url.contains("kompas.com/read/2014/") && page.getParseData() instanceof HtmlParseData
+		if ((url.startsWith("http://nasional.kompas.com/read/2014/")
+				|| url.startsWith("http://regional.kompas.com/read/2014/")
+				|| url.startsWith("http://megapolitan.kompas.com/read/2014/")
+				|| url.startsWith("http://internasional.kompas.com/read/2014/")
+				|| url.startsWith("http://olahraga.kompas.com/read/2014/")
+				|| url.startsWith("http://sains.kompas.com/read/2014/")
+				|| url.startsWith("http://edukasi.kompas.com/read/2014/")
+				|| url.startsWith("http://bisniskeuangan.kompas.com/read/2014/"))
+				&& page.getParseData() instanceof HtmlParseData
 				&& !hash.containsKey(url)) {
 			
 			System.out.println("\n" + url);
@@ -60,9 +68,9 @@ public class CrawlerKompas extends WebCrawler {
 			
 			hash.put(url, 0);
 			pageNumber++;
-			System.out.println("Text length: " + text.length());
-			System.out.println("Html length: " + HTML.length());
-			System.out.println("Number of outgoing links: " + links.size());
+			//System.out.println("Text length: " + text.length());
+			//System.out.println("Html length: " + HTML.length());
+			//System.out.println("Number of outgoing links: " + links.size());
 		}
 	}
 }

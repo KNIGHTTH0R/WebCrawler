@@ -14,7 +14,7 @@ import edu.uci.ics.crawler4j.url.WebURL;
 
 public class CrawlerViva extends WebCrawler {
 	public HashMap<String,Integer> hash = new HashMap<String,Integer>();
-	int pageNumber = 0;
+	static int pageNumber = 0;
 	private final static Pattern FILTERS =
 			Pattern.compile(".*(\\.(css|js|bmp|gif|jpe?g"
 					+ "|png|tiff?|mid|mp2|mp3|mp4"
@@ -24,14 +24,14 @@ public class CrawlerViva extends WebCrawler {
 	public boolean shouldVisit(WebURL url) {
 		String href = url.getURL().toLowerCase();
 		return !FILTERS.matcher(href).matches() && 
-				href.contains("news.viva.co.id/");
+				href.contains("viva.co.id/");
 	}
 
 	@Override
 	public void visit(Page page) {
 		String url = page.getWebURL().getURL();
 		
-		if (url.contains("news.viva.co.id/news/read/") && page.getParseData() instanceof HtmlParseData
+		if (url.startsWith("http://politik.news.viva.co.id/news/read/") && page.getParseData() instanceof HtmlParseData
 				&& !hash.containsKey(url)) {
 			
 			System.out.println("\n" + url);
