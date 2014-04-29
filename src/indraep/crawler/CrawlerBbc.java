@@ -31,7 +31,10 @@ public class CrawlerBbc extends WebCrawler {
 	public void visit(Page page) {
 		String url = page.getWebURL().getURL();
 
-		if (url.startsWith("http://www.bbc.com/news/") && page.getParseData() instanceof HtmlParseData
+		if (url.startsWith("http://www.bbc.com/news/") 
+				&& url.length() > "http://www.bbc.com/news/".length() 
+				&& url.lastIndexOf("-") != -1
+				&& page.getParseData() instanceof HtmlParseData
 				&& !hash.containsKey(url)) {
 			
 			HtmlParseData HTMLParseData =
