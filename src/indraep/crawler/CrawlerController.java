@@ -28,7 +28,7 @@ public class CrawlerController {
 		//controller.addSeed("http://news.viva.co.id/");
 		//controller.addSeed("http://edition.cnn.com/");
 		//controller.addSeed("http://www.bbc.com/");
-		controller.addSeed("http://www.nytimes.com/");
+		controller.addSeed("http://www.nytimes.com/2014/");
 		//controller.addSeed("http://www.thejakartapost.com/");
 		
 		//controller.start(CrawlerKompas.class, numberOfCrawlers);
