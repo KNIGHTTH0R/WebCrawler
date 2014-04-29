@@ -32,7 +32,7 @@ public class CrawlerNYTimes extends WebCrawler {
 	public void visit(Page page) {
 		String url = page.getWebURL().getURL();
 		
-		if (url.contains("nytimes.com/2014/") && page.getParseData() instanceof HtmlParseData
+		if (url.startsWith("http://www.nytimes.com/2014/") && page.getParseData() instanceof HtmlParseData
 				&& !hash.containsKey(url)) {
 			
 			System.out.println("Url = " + url);
