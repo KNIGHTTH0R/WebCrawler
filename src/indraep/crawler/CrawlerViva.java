@@ -31,7 +31,7 @@ public class CrawlerViva extends WebCrawler {
 	public void visit(Page page) {
 		String url = page.getWebURL().getURL();
 		
-		if (url.startsWith("http://politik.news.viva.co.id/news/read/") && page.getParseData() instanceof HtmlParseData
+		if (url.contains("news.viva.co.id/news/read/") && page.getParseData() instanceof HtmlParseData
 				&& !hash.containsKey(url)) {
 			
 			System.out.println("\n" + url);
