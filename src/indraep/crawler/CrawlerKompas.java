@@ -33,6 +33,8 @@ public class CrawlerKompas extends WebCrawler {
 	public void visit(Page page) {
 		String url = page.getWebURL().getURL();
 		
+		//System.out.println("URL" + url);
+		
 		if ((url.startsWith("http://nasional.kompas.com/read/2014/")
 				|| url.startsWith("http://regional.kompas.com/read/2014/")
 				|| url.startsWith("http://megapolitan.kompas.com/read/2014/")
