@@ -12,6 +12,7 @@ public class CrawlerController {
 		int numberOfCrawlers = 7;
 		CrawlConfig config = new CrawlConfig();
 		
+		//config.setMaxDepthOfCrawling(1);
 		/** PROXY SETTING */
 		//config.setProxyHost("proxy.ui.ac.id");
 		//config.setProxyPort(8080);
@@ -28,14 +29,14 @@ public class CrawlerController {
 		//controller.addSeed("http://news.viva.co.id/indeks/2014/1/1");
 		//controller.addSeed("http://edition.cnn.com/");
 		//controller.addSeed("http://www.bbc.com/");
-		controller.addSeed("http://www.nytimes.com/");
-		//controller.addSeed("http://www.thejakartapost.com/");
+		//controller.addSeed("http://www.nytimes.com");
+		controller.addSeed("http://www.thejakartapost.com/");
 		
 		//controller.start(CrawlerKompas.class, numberOfCrawlers);
 		//controller.start(CrawlerViva.class, numberOfCrawlers);
 		//controller.start(CrawlerCnn.class, numberOfCrawlers);
 		//controller.start(CrawlerBbc.class, numberOfCrawlers);
-		controller.start(CrawlerNYTimes.class, numberOfCrawlers);
-		//controller.start(CrawlerTheJakartaPost.class, numberOfCrawlers);
+		//controller.start(CrawlerNYTimes.class, numberOfCrawlers);
+		controller.start(CrawlerTheJakartaPost.class, numberOfCrawlers);
 	}
 }

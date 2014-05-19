@@ -25,19 +25,19 @@ public class CrawlerNYTimes extends WebCrawler {
 	public boolean shouldVisit(WebURL url) {
 		String href = url.getURL().toLowerCase();
 		return !FILTERS.matcher(href).matches() &&
-				href.contains("nytimes.com/");
+				href.contains("nytimes.com/2014");
 	}
 
 	@Override
 	public void visit(Page page) {
 		String url = page.getWebURL().getURL();
 		
-		//System.out.println("URL = " + url);
+		System.out.println("URL = " + url);
 		
 		if (url.startsWith("http://www.nytimes.com/2014/") && page.getParseData() instanceof HtmlParseData
 				&& !hash.containsKey(url)) {
 			
-			System.out.println("Url = " + url);
+			System.out.println(url);
 			
 			HtmlParseData HTMLParseData =
 					(HtmlParseData) page.getParseData();
@@ -47,7 +47,7 @@ public class CrawlerNYTimes extends WebCrawler {
 					HTMLParseData.getOutgoingUrls();
 			PrintStream out = null;
 			try {
-				out = new PrintStream(new FileOutputStream("dataset/ny_times/origin/" + pageNumber + ".HTML"));
+				out = new PrintStream(new FileOutputStream("dataset/nytimes/origin/" + pageNumber + ".HTML"));
 				out.print(HTML);
 				System.out.println("PRINTED as " + "origin/" + pageNumber + ".HTML");
 			} catch (FileNotFoundException e) {
