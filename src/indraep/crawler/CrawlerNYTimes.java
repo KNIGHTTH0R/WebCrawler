@@ -25,7 +25,7 @@ public class CrawlerNYTimes extends WebCrawler {
 	public boolean shouldVisit(WebURL url) {
 		String href = url.getURL().toLowerCase();
 		return !FILTERS.matcher(href).matches() &&
-				href.contains("nytimes.com/2014");
+				href.startsWith("http://www.nytimes.com/");
 	}
 
 	@Override
